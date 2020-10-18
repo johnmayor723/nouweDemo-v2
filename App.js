@@ -9,7 +9,7 @@ import {createDrawerNavigator} from "@react-navigation/drawer"
 
 import MainTabScreen from './screens/maintabscreen'
 
-import DrawerContents from '/screens/drawercontents'
+import DrawerContent from './screens/drawercontents'
 
 
 const Drawer = createDrawerNavigator()

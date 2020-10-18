@@ -11,16 +11,27 @@ import {
     TouchableRipple,
     Switch
 } from 'react-native-paper';
+
 import {
     DrawerContentScrollView,
-    DrawerItem
-} from '@react-navigation/drawer';
+    DrawerItemList,
+  } from '@react-navigation/drawer';
 
 import Icon from 'react-native-vector-icons/MaterialCommunityIcons';
 
 //import{ AuthContext } from '../components/context';
+   
+  
+  function CustomDrawerContent(props) {
+    return (
+      <DrawerContentScrollView {...props}>
+        <DrawerItemList {...props} />
+      </DrawerContentScrollView>
+    );
+  }
 
-export function DrawerContent(props) {
+
+  function DrawerContent(props) {
    
     const [isDarkTheme, setIsDarkTheme] = React.useState(false);
         const toggleTheme = () => {
@@ -62,7 +73,7 @@ export function DrawerContent(props) {
                     </View>
 
                     <Drawer.Section style={styles.drawerSection}>
-                        <DrawerItem 
+                        <DrawerItemList 
                             icon={({color, size}) => (
                                 <Icon 
                                 name="home-outline" 
@@ -73,7 +84,7 @@ export function DrawerContent(props) {
                             label="Home"
                             onPress={() => {props.navigation.navigate('Home')}}
                         />
-                        <DrawerItem 
+                        <DrawerItemList
                             icon={({color, size}) => (
                                 <Icon 
                                 name="account-outline" 
@@ -84,7 +95,7 @@ export function DrawerContent(props) {
                             label="Profile"
                             onPress={() => {props.navigation.navigate('Profile')}}
                         />
-                        <DrawerItem 
+                        <DrawerItemList
                             icon={({color, size}) => (
                                 <Icon 
                                 name="bookmark-outline" 
@@ -95,7 +106,7 @@ export function DrawerContent(props) {
                             label="Bookmarks"
                             onPress={() => {props.navigation.navigate('BookmarkScreen')}}
                         />
-                        <DrawerItem 
+                        <DrawerItemList
                             icon={({color, size}) => (
                                 <Icon 
                                 name="settings-outline" 
@@ -106,7 +117,7 @@ export function DrawerContent(props) {
                             label="Settings"
                             onPress={() => {props.navigation.navigate('SettingsScreen')}}
                         />
-                        <DrawerItem 
+                        <DrawerItemList
                             icon={({color, size}) => (
                                 <Icon 
                                 name="account-check-outline" 
@@ -131,7 +142,7 @@ export function DrawerContent(props) {
                 </View>
             </DrawerContentScrollView>
             <Drawer.Section style={styles.bottomDrawerSection}>
-                <DrawerItem 
+                <DrawerItemList
                     icon={({color, size}) => (
                         <Icon 
                         name="exit-to-app" 
